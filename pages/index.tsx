@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import React from 'react'
 import Theme from '../client/Theme'
-import { Box, Divider, Grid, Typography } from '@mui/material'
+import { Box, Divider, Grid } from '@mui/material'
 import ProfileSidebar from '../components/ProfileSidebar'
-import RepoBody from '../components/RepoBody'
+import ProfileBody from '../components/ProfileBody'
 
 export default function Home({ allPostsData }) {
   return (
@@ -39,7 +39,7 @@ export default function Home({ allPostsData }) {
 				<Grid item
 					xs={9}
 				>
-                    <RepoBody />
+                    <ProfileBody />
 				</Grid>
 			</Grid>
 		</Box>

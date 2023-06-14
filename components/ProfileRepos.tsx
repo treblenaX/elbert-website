@@ -5,8 +5,7 @@ import { useEffect, useState } from "react";
 import Theme from "../client/Theme";
 import GITHUB_LANGUAGE_COLORS from "../public/github_language_colors.json";
 
-export default function RepoBody() {
-    const [repos, setRepos] = useState([]);
+export default function ProfileRepos() {
     const [liveRepos, setLiveRepos] = useState([]);
     const octokit = new Octokit();
 

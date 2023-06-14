@@ -6,7 +6,7 @@ import Theme from '../client/Theme'
 const theme = createTheme({
     palette: {
         primary: {
-            main: Theme.COLOR.PRIMARY
+            main: Theme.COLOR.PRIMARY,
         }
     },
     typography: {
