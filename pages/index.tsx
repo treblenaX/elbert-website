@@ -2,8 +2,8 @@ import Head from 'next/head'
 import React from 'react'
 import Theme from '../client/Theme'
 import { Box, Divider, Grid } from '@mui/material'
-import ProfileSidebar from '../components/ProfileSidebar'
-import ProfileBody from '../components/ProfileBody'
+import ProfileSidebar from '../components/profile/ProfileSidebar'
+import ProfileBody from '../components/profile/ProfileBody'
 
 export default function Home({ allPostsData }) {
   return (

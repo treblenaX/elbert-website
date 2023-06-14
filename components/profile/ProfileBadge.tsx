@@ -1,6 +1,6 @@
 import { Box, Divider, Grid, Typography } from "@mui/material";
 import Image from "next/image";
-import Theme from "../client/Theme";
+import Theme from "../../client/Theme";
 
 export interface ProfileBadgeProps {
   image_url: string,

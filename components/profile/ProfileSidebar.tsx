@@ -1,7 +1,7 @@
 import { Box, Divider, Grid, Typography } from "@mui/material";
-import ProfileImage from "./ProfileImage";
-import Theme from "../client/Theme";
+import Theme from "../../client/Theme";
 import ProfileBadge from "./ProfileBadge";
+import Image from "next/image";
 
 export default function ProfileSidebar() {
 
@@ -21,7 +21,15 @@ export default function ProfileSidebar() {
           alignItems: 'center'
         }}
       >
-        <ProfileImage />
+        <Image
+          src="/images/elbert.jpg"
+          alt="Picture of Elbert Cheng"
+          width={250}
+          height={250}
+          style={{
+            borderRadius: '50%'
+          }}
+        />
       </Grid>
       <Grid item
         sx={{
@@ -35,7 +43,7 @@ export default function ProfileSidebar() {
           }}
         >
           Elbert Cheng
-                </Typography>
+        </Typography>
         <Typography variant="h2"
           sx={{
             textAlign: 'center',
@@ -44,7 +52,7 @@ export default function ProfileSidebar() {
           }}
         >
           Software Engineer
-                </Typography>
+        </Typography>
       </Grid>
       <Divider orientation="horizontal" flexItem
         sx={{

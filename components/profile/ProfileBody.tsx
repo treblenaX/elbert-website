@@ -1,5 +1,5 @@
 import { Box, Tab, Tabs, styled } from "@mui/material";
-import Theme from "../client/Theme";
+import Theme from "../../client/Theme";
 import { ReactNode, SyntheticEvent, useState } from "react";
 import ProfileRepos from "./ProfileRepos";
 
@@ -65,13 +65,12 @@ function ProfileTabPanel(props: TabPanelProps) {
   )
 }
 
-export default function ProfileBodyTabs() {
+function ProfileBodyTabs() {
   const [value, setValue] = useState(0);
 
   const handleChange = (event: SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
-
 
   return (
     <Box
@@ -102,6 +101,20 @@ export default function ProfileBodyTabs() {
       <ProfileTabPanel value={value} index={2}>
         Item Three
             </ProfileTabPanel>
+    </Box>
+  )
+}
+
+export default function ProfileBody() {
+
+  return (
+    <Box
+      style={{
+        overflow: 'auto',
+        height: '100%'
+      }}
+    >
+      <ProfileBodyTabs />
     </Box>
   )
 }

@@ -2,8 +2,8 @@ import { Box, Grid, Paper, Typography, styled, Link } from "@mui/material";
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import { Octokit } from "@octokit/rest";
 import { useEffect, useState } from "react";
-import Theme from "../client/Theme";
-import GITHUB_LANGUAGE_COLORS from "../public/github_language_colors.json";
+import Theme from "../../client/Theme";
+import GITHUB_LANGUAGE_COLORS from "../../public/github_language_colors.json";
 
 export default function ProfileRepos() {
   const [liveRepos, setLiveRepos] = useState([]);
