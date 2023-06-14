@@ -88,19 +88,19 @@ function ProfileBodyTabs() {
           borderBottom: '1px solid ' + Theme.COLOR.DIVIDER
         }}
       >
-        <ProfileTab label="Repositories" />
         <ProfileTab label="About Me" />
+        <ProfileTab label="Repositories" />
         <ProfileTab label="Item Three" />
       </ProfileTabs>
       <ProfileTabPanel value={value} index={0}>
-        <ProfileRepos />
+        About Me
       </ProfileTabPanel>
       <ProfileTabPanel value={value} index={1}>
-        About Me
-            </ProfileTabPanel>
+        <ProfileRepos />
+      </ProfileTabPanel>
       <ProfileTabPanel value={value} index={2}>
         Item Three
-            </ProfileTabPanel>
+      </ProfileTabPanel>
     </Box>
   )
 }
