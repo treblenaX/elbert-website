@@ -1,4 +1,4 @@
-import { Box, Tab, Tabs, styled } from "@mui/material";
+import { Box, Tab, Tabs, styled, Typography } from "@mui/material";
 import Theme from "../../client/Theme";
 import { ReactNode, SyntheticEvent, useState } from "react";
 import ProfileRepo from "./ProfileRepo";
@@ -107,7 +107,14 @@ export default function ProfileBody(props: ProfileBodyProps) {
             About Me
           </ProfileTabPanel>
           <ProfileTabPanel value={value} index={1}>
-            <ProfileRepo pinnedRepos={props.pinnedRepos} />
+            <div>
+              {/* <Typography
+                variant="h3"
+              >
+                Pinned Repos
+              </Typography> */}
+              <ProfileRepo pinnedRepos={props.pinnedRepos} />
+            </div>
           </ProfileTabPanel>
           <ProfileTabPanel value={value} index={2}>
             Item Three

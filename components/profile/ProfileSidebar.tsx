@@ -2,9 +2,9 @@ import { Box, Divider, Grid, Typography } from "@mui/material";
 import Theme from "../../client/Theme";
 import ProfileBadge from "./ProfileBadge";
 import Image from "next/image";
+import PROFILE_INFO from "../../public/information/profile.json";
 
 export default function ProfileSidebar() {
-
   return (
     <Grid container spacing={2}
       sx={{
@@ -42,7 +42,7 @@ export default function ProfileSidebar() {
             fontSize: '2rem'
           }}
         >
-          Elbert Cheng
+          {PROFILE_INFO.profile.name}
         </Typography>
         <Typography variant="h2"
           sx={{
@@ -51,7 +51,7 @@ export default function ProfileSidebar() {
             fontSize: '1rem'
           }}
         >
-          Software Engineer
+          {PROFILE_INFO.profile.role}
         </Typography>
       </Grid>
       <Divider orientation="horizontal" flexItem
@@ -63,22 +63,34 @@ export default function ProfileSidebar() {
       />
       <Grid item
         sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column'
+          overflowY: 'auto',
+          height: '56vh'
         }}
       >
-        <ProfileBadge
-          image_url="/images/uw_logo.png"
-          image_url_alt="University of Washington Logo"
-          badge_text="Graduated from the University of Washington in 2023."
-        />
-        <ProfileBadge
-          image_url="/images/uw_logo.png"
-          image_url_alt="University of Washington Logo"
-          badge_text="Graduated from the University of Washington in 2023."
-        />
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column',
+            gap: '20px'
+            
+          }}
+        >
+          {
+            PROFILE_INFO.profile.badges.map((b) => {
+              return (
+                <ProfileBadge
+                  image_url={b.img}
+                  image_url_alt={b.img_alt}
+                  headline_text={b.headline}
+                  badge_text={b.text}
+                  time={b.time}
+                />               
+              )
+            })
+          }
+        </Box>
       </Grid>
     </Grid>
   )

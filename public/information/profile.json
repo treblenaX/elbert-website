@@ -1,3 +1,29 @@
 {
-    
+  "profile": {
+    "name": "Elbert Cheng",
+    "role": "Software Engineer",
+    "badges": [
+      {
+        "img": "/images/uw_logo.png",
+        "img_alt": "University of Washington logo",
+        "headline": "B.S. in Informatics",
+        "text": "Graduated from the University of Washington!",
+        "time": "June 2023"
+      },
+      {
+        "img": "",
+        "img_alt": "Amazon logo",
+        "headline": "Software Development Engineer Intern",
+        "text": "Interned under the Consumables Shopping Experience team and worked with Amazon retail data.",
+        "time": "Jun 2022 - September 2022"
+      },
+      {
+        "img": "",
+        "img_alt": "UW iSchool logo",
+        "headline": "Undergraduate Teaching Assistant",
+        "text": "TA'd under the UW iSchool for INFO 200 & INFO 498",
+        "time": "September 2021 - June 2023"
+      }
+    ]
+  }
 }

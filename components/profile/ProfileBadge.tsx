@@ -5,7 +5,9 @@ import Theme from "../../client/Theme";
 export interface ProfileBadgeProps {
   image_url: string,
   image_url_alt: string,
-  badge_text: string
+  headline_text: string,
+  badge_text: string,
+  time: string
 }
 
 export default function ProfileBadge(props: ProfileBadgeProps) {
@@ -21,17 +23,17 @@ export default function ProfileBadge(props: ProfileBadgeProps) {
         sx={{
           flexDirection: 'row',
           flexWrap: 'nowrap',
-          justifyContent: 'center',
           alignItems: 'center',
-          paddingTop: '20px',
+          paddingTop: '30px',
+          paddingBottom: '15px',
           paddingLeft: '50px'
         }}
       >
         <Image
           src={props.image_url}
           alt={props.image_url_alt}
-          width={50}
-          height={50}
+          width={100}
+          height={100}
           style={{
             maxWidth: '100%',
             maxHeight: '100%',
@@ -40,17 +42,37 @@ export default function ProfileBadge(props: ProfileBadgeProps) {
             flexShrink: 0
           }}
         />
-        <Typography variant="h5"
+        <Box
           sx={{
-            color: Theme.COLOR.TEXT.LIGHT,
             padding: '15px',
-            paddingLeft: '30px',
-            fontSize: '1.1rem',
+            paddingLeft: '20px',
+            fontSize: '0.9rem',
             top: 0
           }}
         >
-          {props.badge_text}
-        </Typography>
+          <Typography
+            color={Theme.COLOR.TEXT.LIGHT}
+            fontStyle="bold"
+            variant="h4"
+            fontSize="1.1rem"
+          >
+            {props.headline_text}
+          </Typography>
+          <Typography 
+            color={Theme.COLOR.TEXT.GREY}
+            variant="h5"
+            fontSize="0.9rem"
+          >
+            {props.badge_text}
+          </Typography>
+          <Typography variant="h5"
+            color={Theme.COLOR.TEXT.GREY}
+            fontStyle="italic"
+            fontSize='0.9rem'
+          >
+            {props.time}
+          </Typography>
+        </Box>
       </Grid>
     </Box>
   )
