@@ -1,11 +1,28 @@
 import Head from 'next/head'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Theme from '../client/Theme'
 import { Box, Divider, Grid } from '@mui/material'
 import ProfileSidebar from '../components/profile/ProfileSidebar'
 import ProfileBody from '../components/profile/ProfileBody'
+import { getMyPinnedRepos } from '../lib/api/github/GraphQL';
 
-export default function Home({ allPostsData }) {
+export async function getServerSideProps() {
+  const pinnedRepoData = await getMyPinnedRepos();
+
+  return {
+    props: {
+      pinnedRepos: JSON.stringify(pinnedRepoData)
+    }
+  }
+}
+
+interface HomeProps {
+  pinnedRepos: string
+}
+
+export default function Home(props: HomeProps) {
+  const pinnedRepos = JSON.parse(props.pinnedRepos);
+
   return (
     <>
       <Head>
@@ -39,7 +56,9 @@ export default function Home({ allPostsData }) {
           <Grid item
             xs={9}
           >
-            <ProfileBody />
+            <ProfileBody
+              pinnedRepos={pinnedRepos}
+            />
           </Grid>
         </Grid>
       </Box>

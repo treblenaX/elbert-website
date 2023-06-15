@@ -65,9 +65,15 @@ export default function ProfileSidebar() {
         sx={{
           display: 'flex',
           justifyContent: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
+          flexDirection: 'column'
         }}
       >
+        <ProfileBadge
+          image_url="/images/uw_logo.png"
+          image_url_alt="University of Washington Logo"
+          badge_text="Graduated from the University of Washington in 2023."
+        />
         <ProfileBadge
           image_url="/images/uw_logo.png"
           image_url_alt="University of Washington Logo"

@@ -1,7 +1,8 @@
 import { Box, Tab, Tabs, styled } from "@mui/material";
 import Theme from "../../client/Theme";
 import { ReactNode, SyntheticEvent, useState } from "react";
-import ProfileRepos from "./ProfileRepos";
+import ProfileRepo from "./ProfileRepo";
+import { PinnedRepo } from "../../models/PinnedRepo";
 
 interface ProfileTabsProps {
   children?: ReactNode;
@@ -65,7 +66,11 @@ function ProfileTabPanel(props: TabPanelProps) {
   )
 }
 
-function ProfileBodyTabs() {
+interface ProfileBodyProps {
+  pinnedRepos: PinnedRepo[]
+}
+
+export default function ProfileBody(props: ProfileBodyProps) {
   const [value, setValue] = useState(0);
 
   const handleChange = (event: SyntheticEvent, newValue: number) => {
@@ -74,47 +79,41 @@ function ProfileBodyTabs() {
 
   return (
     <Box
-      sx={{
-        width: '100%'
-      }}
-    >
-      <ProfileTabs
-        value={value}
-        onChange={handleChange}
-        sx={{
-          width: '100%',
-          paddingTop: '50px',
-          paddingLeft: '25px',
-          borderBottom: '1px solid ' + Theme.COLOR.DIVIDER
-        }}
-      >
-        <ProfileTab label="About Me" />
-        <ProfileTab label="Repositories" />
-        <ProfileTab label="Item Three" />
-      </ProfileTabs>
-      <ProfileTabPanel value={value} index={0}>
-        About Me
-      </ProfileTabPanel>
-      <ProfileTabPanel value={value} index={1}>
-        <ProfileRepos />
-      </ProfileTabPanel>
-      <ProfileTabPanel value={value} index={2}>
-        Item Three
-      </ProfileTabPanel>
-    </Box>
-  )
-}
-
-export default function ProfileBody() {
-
-  return (
-    <Box
       style={{
         overflow: 'auto',
         height: '100%'
       }}
+    ><Box
+      sx={{
+        width: '100%'
+      }}
     >
-      <ProfileBodyTabs />
+        <ProfileTabs
+          value={value}
+          onChange={handleChange}
+          sx={{
+            width: '100%',
+            paddingTop: '50px',
+            paddingLeft: '25px',
+            borderBottom: '1px solid ' + Theme.COLOR.DIVIDER
+          }}
+        >
+          <ProfileTab label="About Me" />
+          <ProfileTab label="Pinned Repos" />
+          <ProfileTab label="Item Three" />
+        </ProfileTabs>
+        <Box>
+          <ProfileTabPanel value={value} index={0}>
+            About Me
+          </ProfileTabPanel>
+          <ProfileTabPanel value={value} index={1}>
+            <ProfileRepo pinnedRepos={props.pinnedRepos} />
+          </ProfileTabPanel>
+          <ProfileTabPanel value={value} index={2}>
+            Item Three
+          </ProfileTabPanel>
+        </Box>
+      </Box>
     </Box>
   )
 }

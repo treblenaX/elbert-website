@@ -2478,5 +2478,8 @@
     "Zimpl": {
         "color": "#d67711",
         "url": "https://github.com/trending?l=Zimpl"
+    },
+    "null": {
+      "color": "#000000"
     }
 }
