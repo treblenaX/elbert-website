@@ -99,25 +99,33 @@ export default function ProfileBody(props: ProfileBodyProps) {
           }}
         >
           <ProfileTab label="About Me" />
-          <ProfileTab label="Pinned Repos" />
-          <ProfileTab label="Item Three" />
         </ProfileTabs>
         <Box>
           <ProfileTabPanel value={value} index={0}>
-            About Me
-          </ProfileTabPanel>
-          <ProfileTabPanel value={value} index={1}>
             <div>
-              {/* <Typography
-                variant="h3"
+              <Typography
+                variant="h4"
+                paddingTop="10px"
+                paddingLeft="30px"
+                textAlign="left"
+                color={Theme.COLOR.TEXT.LIGHT}
               >
-                Pinned Repos
-              </Typography> */}
+                About Me
+              </Typography>
+
+            </div>
+            <div>
+              <Typography
+                variant="h4"
+                paddingTop="10px"
+                paddingLeft="30px"
+                textAlign="left"
+                color={Theme.COLOR.TEXT.LIGHT}
+              >
+                Favorite Projects
+              </Typography>
               <ProfileRepo pinnedRepos={props.pinnedRepos} />
             </div>
-          </ProfileTabPanel>
-          <ProfileTabPanel value={value} index={2}>
-            Item Three
           </ProfileTabPanel>
         </Box>
       </Box>

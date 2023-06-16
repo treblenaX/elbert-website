@@ -56,9 +56,5 @@ export async function getMyPinnedRepos() {
       })
     }
   })
-
-  console.log(result)
-
-
   return result;
 }

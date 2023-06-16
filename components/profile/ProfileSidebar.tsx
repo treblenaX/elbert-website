@@ -3,6 +3,7 @@ import Theme from "../../client/Theme";
 import ProfileBadge from "./ProfileBadge";
 import Image from "next/image";
 import PROFILE_INFO from "../../public/information/profile.json";
+import { SocialIcon } from 'react-social-icons';
 
 export default function ProfileSidebar() {
   return (
@@ -30,6 +31,7 @@ export default function ProfileSidebar() {
             borderRadius: '50%'
           }}
         />
+        <SocialMediaBar />
       </Grid>
       <Grid item
         sx={{
@@ -78,9 +80,10 @@ export default function ProfileSidebar() {
           }}
         >
           {
-            PROFILE_INFO.profile.badges.map((b) => {
+            PROFILE_INFO.profile.badges.map((b, i) => {
               return (
                 <ProfileBadge
+                  key={i}
                   image_url={b.img}
                   image_url_alt={b.img_alt}
                   headline_text={b.headline}
@@ -93,5 +96,26 @@ export default function ProfileSidebar() {
         </Box>
       </Grid>
     </Grid>
+  )
+}
+
+function SocialMediaBar() {
+  return (
+    <Grid container
+      flexDirection="column"
+      paddingLeft="20px"
+    >
+      {
+        PROFILE_INFO.profile.socials.map((u) => {
+          return (
+            <Grid item
+              padding="5px"
+            >
+              <SocialIcon url={u} />
+            </Grid>
+          )
+        })
+      }
+    </Grid>  
   )
 }
