@@ -1,6 +1,8 @@
 import { graphql } from "@octokit/graphql";
 import { PinnedRepo } from "../../../models/PinnedRepo";
 
+const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+
 export async function getMyPinnedRepos() {
   const response: any = await graphql(
   `
@@ -35,7 +37,7 @@ export async function getMyPinnedRepos() {
   `,
   {
     headers: {
-      authorization: `token ${process.env.GITHUB_AUTH}`,
+      authorization: `token ${token}`,
       affiliation: 'collaborator'
     }
   })
