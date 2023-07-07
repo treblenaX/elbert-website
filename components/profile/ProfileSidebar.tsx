@@ -55,6 +55,16 @@ export default function ProfileSidebar() {
         >
           {PROFILE_INFO.profile.role}
         </Typography>
+        <Typography variant="h2"
+          sx={{
+            textAlign: 'center',
+            paddingTop: '5px',
+            color: Theme.COLOR.TEXT.LIGHT,
+            fontSize: '1rem'
+          }}
+        >
+          {PROFILE_INFO.profile.hometown}
+        </Typography>
       </Grid>
       <Divider orientation="horizontal" flexItem
         sx={{
@@ -106,12 +116,13 @@ function SocialMediaBar() {
       paddingLeft="20px"
     >
       {
-        PROFILE_INFO.profile.socials.map((u) => {
+        PROFILE_INFO.profile.socials.map((u, i) => {
           return (
             <Grid item
               padding="5px"
+              key={i}
             >
-              <SocialIcon url={u} />
+              <SocialIcon url={u} bgColor={Theme.COLOR.TEXT.LIGHT} />
             </Grid>
           )
         })

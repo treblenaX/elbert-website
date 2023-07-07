@@ -53,7 +53,7 @@ export async function getMyPinnedRepos() {
       languages: r.node.languages.edges.map((l) => {
         return {
           name: l.node.name,
-          size: l.size
+          value: l.size
         }
       })
     }

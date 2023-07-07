@@ -3,6 +3,7 @@ import Theme from "../../client/Theme";
 import { ReactNode, SyntheticEvent, useState } from "react";
 import ProfileRepo from "./ProfileRepo";
 import { PinnedRepo } from "../../models/PinnedRepo";
+import ProfileOverview from "./ProfileOverview";
 
 interface ProfileTabsProps {
   children?: ReactNode;
@@ -93,39 +94,30 @@ export default function ProfileBody(props: ProfileBodyProps) {
           onChange={handleChange}
           sx={{
             width: '100%',
-            paddingTop: '50px',
+            paddingTop: '20px',
             paddingLeft: '25px',
             borderBottom: '1px solid ' + Theme.COLOR.DIVIDER
           }}
         >
-          <ProfileTab label="About Me" />
+          <ProfileTab label="Overview" />
         </ProfileTabs>
         <Box>
           <ProfileTabPanel value={value} index={0}>
-            <div>
+            <Box>
+                <ProfileOverview />
+            </Box>
+            <Box>
               <Typography
-                variant="h4"
-                paddingTop="10px"
-                paddingLeft="30px"
+                paddingLeft="35px"
+                paddingBottom="5px"
+                paddingTop="30px"
                 textAlign="left"
                 color={Theme.COLOR.TEXT.LIGHT}
               >
-                About Me
-              </Typography>
-
-            </div>
-            <div>
-              <Typography
-                variant="h4"
-                paddingTop="10px"
-                paddingLeft="30px"
-                textAlign="left"
-                color={Theme.COLOR.TEXT.LIGHT}
-              >
-                Favorite Projects
+                Pinned Github Projects
               </Typography>
               <ProfileRepo pinnedRepos={props.pinnedRepos} />
-            </div>
+            </Box>
           </ProfileTabPanel>
         </Box>
       </Box>

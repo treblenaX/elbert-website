@@ -7,6 +7,6 @@ export interface PinnedRepo {
   createdAt: Date,
   languages: [{
     name: string,
-    size: number
+    value: number
   }]
 }

@@ -24,7 +24,11 @@ export default function Home(props: HomeProps) {
   const pinnedRepos = JSON.parse(props.pinnedRepos);
 
   return (
-    <>
+    <Box
+        style={{
+            overflow: 'hidden'
+        }}
+    >
       <Head>
         <title> Home | Elbert Cheng</title>
       </Head>
@@ -62,6 +66,6 @@ export default function Home(props: HomeProps) {
           </Grid>
         </Grid>
       </Box>
-    </>
+    </Box>
   )
 }
