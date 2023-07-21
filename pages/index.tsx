@@ -5,23 +5,31 @@ import { Box, Divider, Grid } from '@mui/material'
 import ProfileSidebar from '../components/profile/ProfileSidebar'
 import ProfileBody from '../components/profile/ProfileBody'
 import { getMyPinnedRepos } from '../lib/api/github/GraphQL';
+import calculateOverallRepoMetrics from '../lib/repo/RepoCalculator';
 
 export async function getServerSideProps() {
   const pinnedRepoData = await getMyPinnedRepos();
+  const metrics = {
+    repoMetrics: calculateOverallRepoMetrics(pinnedRepoData)
+  }
 
   return {
     props: {
-      pinnedRepos: JSON.stringify(pinnedRepoData)
+      pinnedRepos: JSON.stringify(pinnedRepoData),
+      metrics: JSON.stringify(metrics)
     }
   }
 }
 
 interface HomeProps {
-  pinnedRepos: string
+  pinnedRepos: string,
+  metrics: string
 }
 
 export default function Home(props: HomeProps) {
-  const pinnedRepos = JSON.parse(props.pinnedRepos);
+  const pinnedRepos = JSON.parse(props.pinnedRepos)
+  const metrics = JSON.parse(props.metrics)
+  const repoMetrics = metrics.repoMetrics
 
   return (
     <Box
@@ -62,6 +70,7 @@ export default function Home(props: HomeProps) {
           >
             <ProfileBody
               pinnedRepos={pinnedRepos}
+              repoMetrics={repoMetrics}
             />
           </Grid>
         </Grid>

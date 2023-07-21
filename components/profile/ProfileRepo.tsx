@@ -98,7 +98,7 @@ function buildRepoItemComponent(repo: PinnedRepo) {
             width: '100px'
           }}
         >
-          <GithubLanguagePieChart languageData={repo.languages} />
+          {/* <GithubLanguagePieChart repoMetrics={repo.languages} /> */}
         </Grid>
       </Grid>
       <Typography variant="h6"
