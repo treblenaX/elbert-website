@@ -3,7 +3,7 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import Theme from "../../client/Theme";
 import GITHUB_LANGUAGE_COLORS from "../../public/github_language_colors.json";
 import { PinnedRepo } from "../../models/PinnedRepo";
-import GithubLanguagePieChart from "../charts/GithubLanguagePieChart";
+import GithubLanguagePieChart from "./GithubLanguagePieChart";
 
 interface ProfileRepoProps {
   pinnedRepos: PinnedRepo[]
@@ -98,7 +98,7 @@ function buildRepoItemComponent(repo: PinnedRepo) {
             width: '100px'
           }}
         >
-          {/* <GithubLanguagePieChart repoMetrics={repo.languages} /> */}
+          {/* <GithubLanguagePieChart overallRepoMetrics={repo.languages} /> */}
         </Grid>
       </Grid>
       <Typography variant="h6"

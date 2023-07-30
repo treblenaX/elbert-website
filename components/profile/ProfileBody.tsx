@@ -7,11 +7,11 @@ import ProfileOverview from "./ProfileOverview";
 
 interface ProfileBodyProps {
   pinnedRepos: PinnedRepo[],
-  repoMetrics: any[]
+  overallRepoMetrics: any[]
 }
 
 export default function ProfileBody(props: ProfileBodyProps) {
-  const repoMetrics = props.repoMetrics
+  const overallRepoMetrics = props.overallRepoMetrics
   const [value, setValue] = useState(0)
 
   const handleChange = (event: SyntheticEvent, newValue: number) => {
@@ -44,7 +44,7 @@ export default function ProfileBody(props: ProfileBodyProps) {
         <Box>
           <ProfileTabPanel value={value} index={0}>
             <Box>
-                <ProfileOverview repoMetrics={repoMetrics} />
+                <ProfileOverview overallRepoMetrics={overallRepoMetrics} />
             </Box>
             <Box>
               <Typography

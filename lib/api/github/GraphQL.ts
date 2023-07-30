@@ -1,9 +1,25 @@
 import { graphql } from "@octokit/graphql";
-import { PinnedRepo } from "../../../models/PinnedRepo";
 
 const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
-export async function getMyPinnedRepos() {
+export async function getProfileCommitCount() {
+  try {
+    const response = await fetch(`https://api.github.com/search/commits?q=author:treblenaX`, {
+      method: 'GET',
+      headers: {
+        authorization: `token ${token}`,
+        accept: 'application/vnd.github.cloak-preview',
+        contentType: 'application/json'
+        }
+      }
+    ) 
+    return await response.json()
+  } catch (error) {
+    // TODO: handle error
+  }
+}
+
+export async function getPinnedRepos() {
   const response: any = await graphql(
   `
     {

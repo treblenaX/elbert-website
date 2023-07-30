@@ -4,32 +4,32 @@ import Theme from '../client/Theme'
 import { Box, Divider, Grid } from '@mui/material'
 import ProfileSidebar from '../components/profile/ProfileSidebar'
 import ProfileBody from '../components/profile/ProfileBody'
-import { getMyPinnedRepos } from '../lib/api/github/GraphQL';
+import { getPinnedRepos, getProfileCommitCount } from '../lib/api/github/GraphQL';
 import calculateOverallRepoMetrics from '../lib/repo/RepoCalculator';
 
 export async function getServerSideProps() {
-  const pinnedRepoData = await getMyPinnedRepos();
-  const metrics = {
-    repoMetrics: calculateOverallRepoMetrics(pinnedRepoData)
-  }
+  const pinnedRepoData = await getPinnedRepos()
+  // Total count is commit count here
+  const test = await getProfileCommitCount()
+
+  console.log(test)
 
   return {
     props: {
       pinnedRepos: JSON.stringify(pinnedRepoData),
-      metrics: JSON.stringify(metrics)
+      overallRepoMetrics: JSON.stringify(calculateOverallRepoMetrics(pinnedRepoData))
     }
   }
 }
 
 interface HomeProps {
   pinnedRepos: string,
-  metrics: string
+  overallRepoMetrics: string
 }
 
 export default function Home(props: HomeProps) {
   const pinnedRepos = JSON.parse(props.pinnedRepos)
-  const metrics = JSON.parse(props.metrics)
-  const repoMetrics = metrics.repoMetrics
+  const overallRepoMetrics = JSON.parse(props.overallRepoMetrics)
 
   return (
     <Box
@@ -70,7 +70,7 @@ export default function Home(props: HomeProps) {
           >
             <ProfileBody
               pinnedRepos={pinnedRepos}
-              repoMetrics={repoMetrics}
+              overallRepoMetrics={overallRepoMetrics}
             />
           </Grid>
         </Grid>

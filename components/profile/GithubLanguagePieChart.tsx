@@ -54,11 +54,11 @@ const renderActiveShape = (props) => {
 };
 
 interface GithubLanguagePieChartProps {
-  repoMetrics: any[]
+  overallRepoMetrics: any[]
 }
 
 export default function GithubLanguagePieChart(props: GithubLanguagePieChartProps) {
-  const repoMetrics = props.repoMetrics
+  const overallRepoMetrics = props.overallRepoMetrics
   const [pieIndex, setPieIndex] = useState(0)
   const [boxRef, { height, width }] = useElementSize()
 
@@ -79,9 +79,9 @@ export default function GithubLanguagePieChart(props: GithubLanguagePieChartProp
           <Pie
             activeIndex={pieIndex}
             activeShape={renderActiveShape}
-            data={repoMetrics}
+            data={overallRepoMetrics}
             cx="50%"
-            cy="50%"
+            cy="40%"
             innerRadius={"50%"}
             outerRadius={"60%"}
             fill="#8884d8"
@@ -91,7 +91,7 @@ export default function GithubLanguagePieChart(props: GithubLanguagePieChartProp
             fontSize={width / height * 10}
           >
           {
-            props.repoMetrics.map((entry, index) => (
+            props.overallRepoMetrics.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={GITHUB_LANGUAGE_COLORS[entry.name].color} />
             ))
           }
