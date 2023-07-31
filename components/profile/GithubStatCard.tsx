@@ -92,7 +92,8 @@ export default function GithubStatCard() {
             </Typography>     
           </Grid>
         </Grid>
-        <Grid item>
+      </Grid>
+      <Grid item>
         <Grid container
           sx={{
             flexDirection: 'row',
@@ -133,6 +134,5 @@ export default function GithubStatCard() {
         </Grid>
       </Grid>
     </Grid>
-  </Grid>
   )
 }

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React, { useEffect } from 'react'
 import Theme from '../client/Theme'
-import { Box, Divider, Grid } from '@mui/material'
+import { Box, Button, Divider, Grid } from '@mui/material'
 import ProfileSidebar from '../components/profile/ProfileSidebar'
 import ProfileBody from '../components/profile/ProfileBody'
 import { getPinnedRepos, getProfileCommitCount } from '../lib/api/github/GraphQL';
@@ -53,7 +53,7 @@ export default function Home(props: HomeProps) {
           }}
         >
           <Grid item
-            xs={3}
+            // xs={3}
           >
             <ProfileSidebar />
           </Grid>

@@ -66,6 +66,11 @@ export default function GithubLanguagePieChart(props: GithubLanguagePieChartProp
     setPieIndex(index)
   }
 
+  useEffect(() => {
+    console.log(height);
+    console.log(width);
+  }, [height])
+
   return (
     <Box
       sx={{

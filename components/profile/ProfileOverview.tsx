@@ -17,14 +17,14 @@ export default function ProfileOverview(props: ProfileOverviewProps) {
     <Box>
       <Grid container
         flexDirection="row"
-        flexWrap="wrap"
+        flexWrap="nowrap"
         justifyContent="center"
         style={{
           height: '300px',
         }}
       >
         <Grid item
-          flexBasis="49%"
+          flexBasis="45%"
           style={{
             width: '100%',
             height: '100%'
@@ -43,17 +43,12 @@ export default function ProfileOverview(props: ProfileOverviewProps) {
           <GithubLanguagePieChart overallRepoMetrics={overallRepoMetrics} />
         </Grid>
         <Grid item
-          flexBasis="49%"
+          flexBasis="45%"
           style={{
-            width: '100%',
-            height: '100%'
+            margin: 'auto'
           }}
         >
-          <Box
-            paddingTop="30px"
-          >
-            <GithubStatCard />
-          </Box>
+          <GithubStatCard />
         </Grid>
       </Grid>
     </Box>

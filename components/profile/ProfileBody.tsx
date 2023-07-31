@@ -22,7 +22,7 @@ export default function ProfileBody(props: ProfileBodyProps) {
     <Box
       style={{
         overflow: 'auto',
-        height: '100%'
+        height: '100%' 
       }}
     ><Box
       sx={{
@@ -44,7 +44,7 @@ export default function ProfileBody(props: ProfileBodyProps) {
         <Box>
           <ProfileTabPanel value={value} index={0}>
             <Box>
-                <ProfileOverview overallRepoMetrics={overallRepoMetrics} />
+              <ProfileOverview overallRepoMetrics={overallRepoMetrics} />
             </Box>
             <Box>
               <Typography
