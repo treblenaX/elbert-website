@@ -4,67 +4,8 @@ import ProfileBadge from "./ProfileBadge";
 import Image from "next/image";
 import PROFILE_INFO from "../../public/information/profile.json";
 import { SocialIcon } from 'react-social-icons';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { useState } from "react";
-import { useTheme } from "@emotion/react";
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
 
 export default function ProfileSidebar() {
-  const [open, setOpen] = useState(false)
-  const theme = useTheme()
-
-  const handleDrawerOpen = () => {
-    setOpen(true)
-  }
-
-  const handleDrawerClose = () => {
-    setOpen(false)
-  }
-
-  return (
-    <>
-      <IconButton
-        onClick={handleDrawerOpen}
-        sx={{
-          color: Theme.COLOR.TEXT.LIGHT
-        }}
-      >
-        <MenuIcon />
-      </IconButton>
-      <Drawer open={open}>
-        <Box  
-          sx={{
-            backgroundColor: Theme.COLOR.PRIMARY
-          }}
-        >
-          <DrawerHeader>
-            <IconButton 
-              onClick={handleDrawerClose}
-              sx={{
-                color: Theme.COLOR.TEXT.LIGHT
-              }}
-            >
-              <ChevronRightIcon />
-            </IconButton>
-          </DrawerHeader>
-          <ExtendedContent />
-        </Box>
-      </Drawer>
-    </>
-  )
-}
-
-function ExtendedContent() {
   return (
   <Grid container spacing={2}
     sx={{
