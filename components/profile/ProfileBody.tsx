@@ -3,7 +3,7 @@ import Theme from "../../client/Theme";
 import { ReactNode, SyntheticEvent, useState } from "react";
 import ProfileRepo from "./ProfileRepo";
 import { PinnedRepo } from "../../models/PinnedRepo";
-import ProfileOverview from "./ProfileOverview";
+import ProfileOverview from "./ProfileRepoOverview";
 
 interface ProfileBodyProps {
   pinnedRepos: PinnedRepo[],
@@ -22,13 +22,14 @@ export default function ProfileBody(props: ProfileBodyProps) {
     <Box
       style={{
         overflow: 'auto',
-        height: '100%' 
-      }}
-    ><Box
-      sx={{
-        width: '100%'
+        height: '100%'
       }}
     >
+      {/* <Box
+        sx={{
+          width: '100%'
+        }}
+      >
         <ProfileTabs
           value={value}
           onChange={handleChange}
@@ -47,20 +48,15 @@ export default function ProfileBody(props: ProfileBodyProps) {
               <ProfileOverview overallRepoMetrics={overallRepoMetrics} />
             </Box>
             <Box>
-              <Typography
-                paddingLeft="35px"
-                paddingBottom="5px"
-                paddingTop="30px"
-                textAlign="left"
-                color={Theme.COLOR.TEXT.LIGHT}
-              >
-                Pinned Github Projects
-              </Typography>
               <ProfileRepo pinnedRepos={props.pinnedRepos} />
             </Box>
           </ProfileTabPanel>
         </Box>
-      </Box>
+      </Box> */}
+      <ProfileRepo 
+        pinnedRepos={props.pinnedRepos} 
+        overallRepoMetrics={overallRepoMetrics}
+      />
     </Box>
   )
 }

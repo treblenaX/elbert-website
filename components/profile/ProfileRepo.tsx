@@ -3,13 +3,17 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import Theme from "../../client/Theme";
 import GITHUB_LANGUAGE_COLORS from "../../public/github_language_colors.json";
 import { PinnedRepo } from "../../models/PinnedRepo";
+import GithubLanguagePieChart from "./GithubLanguagePieChart";
+import GithubStatCard from "./GithubStatCard";
 
 interface ProfileRepoProps {
-  pinnedRepos: PinnedRepo[]
+  pinnedRepos: PinnedRepo[],
+  overallRepoMetrics: any
 }
 
 export default function ProfileRepo(props: ProfileRepoProps) {
-  const pinnedRepos = props.pinnedRepos;
+  const pinnedRepos = props.pinnedRepos
+  const overallRepoMetrics = props.overallRepoMetrics;
 
   return (
     <Box
@@ -18,6 +22,35 @@ export default function ProfileRepo(props: ProfileRepoProps) {
         height: '100%'
       }}
     >
+      <Grid container
+        justifyContent="center"
+      >
+        <Grid item
+          style={{
+            width: '100%',
+            height: '300px'
+          }}
+        >
+          <Typography
+            variant="h6"
+            sx={{
+              paddingTop: '30px',
+              textAlign: 'center',
+              color: Theme.COLOR.TEXT.LIGHT
+            }}
+          >
+            Most Language Used
+          </Typography>
+          <GithubLanguagePieChart overallRepoMetrics={overallRepoMetrics} />
+        </Grid>
+        <Grid item
+          style={{
+            margin: 'auto'
+          }}
+        >
+          <GithubStatCard />
+        </Grid>
+      </Grid>
       <Grid container
         columnSpacing={3}
         sx={{
