@@ -23,13 +23,15 @@ export default function ProfileRepo(props: ProfileRepoProps) {
       }}
     >
       <Grid container
-        justifyContent="center"
+        justifyContent='center'
+        alignItems='center'
       >
         <Grid item
           style={{
-            width: '100%',
             height: '300px'
           }}
+          xs={12}
+          md={6}
         >
           <Typography
             variant="h6"
@@ -44,9 +46,8 @@ export default function ProfileRepo(props: ProfileRepoProps) {
           <GithubLanguagePieChart overallRepoMetrics={overallRepoMetrics} />
         </Grid>
         <Grid item
-          style={{
-            margin: 'auto'
-          }}
+          xs={8}
+          md={2}
         >
           <GithubStatCard />
         </Grid>

@@ -10,7 +10,7 @@ export default function GithubStatCard() {
       border: `1px solid ${Theme.COLOR.DIVIDER}`,
       borderRadius: '5px',
       flexDirection: 'column',
-      padding: '10px'
+      padding: '15px'
      }}
     >
       <Grid item>
