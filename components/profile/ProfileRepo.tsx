@@ -28,7 +28,7 @@ export default function ProfileRepo(props: ProfileRepoProps) {
       >
         <Grid item
           style={{
-            height: '300px'
+            height: '300px',
           }}
           xs={12}
           md={6}
@@ -46,7 +46,7 @@ export default function ProfileRepo(props: ProfileRepoProps) {
           <GithubLanguagePieChart overallRepoMetrics={overallRepoMetrics} />
         </Grid>
         <Grid item
-          xs={8}
+          xs={10}
           md={2}
         >
           <GithubStatCard />
@@ -55,7 +55,7 @@ export default function ProfileRepo(props: ProfileRepoProps) {
       <Grid container
         columnSpacing={3}
         sx={{
-          padding: '30px',
+          paddingRight: '10px',
           paddingTop: '0px'
         }}
       >
