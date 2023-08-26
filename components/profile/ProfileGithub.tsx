@@ -11,7 +11,7 @@ interface ProfileRepoProps {
   overallRepoMetrics: any
 }
 
-export default function ProfileRepo(props: ProfileRepoProps) {
+export default function ProfileGithub(props: ProfileRepoProps) {
   const pinnedRepos = props.pinnedRepos
   const overallRepoMetrics = props.overallRepoMetrics;
 
@@ -28,7 +28,8 @@ export default function ProfileRepo(props: ProfileRepoProps) {
       >
         <Grid item
           style={{
-            height: '300px',
+            height: '350px',
+            paddingBottom: '15px'
           }}
           xs={12}
           md={6}
@@ -43,7 +44,7 @@ export default function ProfileRepo(props: ProfileRepoProps) {
           >
             Most Language Used
           </Typography>
-          <GithubLanguagePieChart overallRepoMetrics={overallRepoMetrics} />
+            <GithubLanguagePieChart overallRepoMetrics={overallRepoMetrics} />
         </Grid>
         <Grid item
           xs={10}

@@ -23,7 +23,7 @@ export default function GithubLanguagePieChart(props: GithubLanguagePieChartProp
     <Box
       sx={{
         width: '100%',
-        height: '100%'
+        height: '100%',
       }}
       ref={boxRef}
     >

@@ -8,7 +8,7 @@ export default function GithubStatCard() {
     <Grid container
      sx={{
       border: `1px solid ${Theme.COLOR.DIVIDER}`,
-      borderRadius: '5px',
+      borderRadius: '15px',
       flexDirection: 'column',
       padding: '15px'
      }}

@@ -1,13 +1,10 @@
 import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
-import MuiDrawer from '@mui/material/Drawer';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import { Box, Button, CSSObject, Divider, Grid, IconButton, Theme as t, Typography, styled, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, CssBaseline, useScrollTrigger, AppBar, Container } from '@mui/material'
-import ProfileSidebar from '../components/profile/ProfileSidebar'
-import ProfileBody from '../components/profile/ProfileBody'
 import { calculateOverallRepoMetrics, getPinnedRepos, getProfileCommitCount } from '../lib/repo/MetricFetcher';
 import Theme from '../client/Theme';
-import { InboxOutlined, MailOutline } from '@mui/icons-material';
+import ProfileGithub from '../components/profile/ProfileGithub';
+import ProfileCard from '../components/profile/ProfileCard';
 
 const DRAWER_WIDTH = 400
 
@@ -35,21 +32,21 @@ interface AppBarProps {
 }
 
 
-function ElevationScroll(props: AppBarProps) {
-  const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-    target: window ? window() : undefined,
-  });
+// function ElevationScroll(props: AppBarProps) {
+//   const { children, window } = props;
+//   // Note that you normally won't need to set the window ref as useScrollTrigger
+//   // will default to window.
+//   // This is only being set here because the demo is in an iframe.
+//   const trigger = useScrollTrigger({
+//     disableHysteresis: true,
+//     threshold: 0,
+//     target: window ? window() : undefined,
+//   });
 
-  return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
-  });
-}
+//   return React.cloneElement(children, {
+//     elevation: trigger ? 4 : 0,
+//   });
+// }
 
 interface HomeProps {
   pinnedRepos: string,
@@ -69,33 +66,39 @@ export default function Home(props: HomeProps) {
       <Head>
         <title> Home | Elbert Cheng</title>
       </Head>
-      <React.Fragment>
-        <CssBaseline />
-        <AppBar
-          sx={{
-            borderBottom: '1px solid ' + Theme.COLOR.DIVIDER,
-            padding: '0px 0px 0px 0px'
-          }}
-        >
-          <Toolbar
-            sx={{
-              padding: '0px 0px 0px 0px'
-            }}
-          >
-            <Typography variant="h6" component="div">
-              Elbert K. Cheng
+      <Container>
+        <Box>
+          <Box>
+            <Typography
+              variant="h4"
+              sx={{
+                paddingTop: '30px',
+                color: Theme.COLOR.TEXT.LIGHT,
+                fontSize: '0.9rem'
+              }}
+            >
+              PROFILE
             </Typography>
-          </Toolbar>
-        </AppBar>
-        <Container>
-          <Box sx={{ my: 5 }}>
-            <ProfileBody
+            <ProfileCard />
+          </Box>
+          <Box>
+            <Typography
+              variant="h4"
+              sx={{
+                paddingTop: '30px',
+                color: Theme.COLOR.TEXT.LIGHT,
+                fontSize: '0.9rem'
+              }}
+            >
+              GITHUB
+            </Typography>
+            <ProfileGithub
               pinnedRepos={pinnedRepos}
               overallRepoMetrics={overallRepoMetrics}
             />
           </Box>
-        </Container>
-      </React.Fragment>
+        </Box>
+      </Container>
     </Box>
   )
 }
